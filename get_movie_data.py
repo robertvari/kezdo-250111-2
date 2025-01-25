@@ -29,9 +29,10 @@ def print_movies(movie_list):
         print(movie["title"], movie["vote_average"])
 
 def save_movies(movie_list):
-    with open("movie_database.json", "w") as f:
+    response = input("Give me the filename of the movie database: ")
+    with open(f"{response}.json", "w") as f:
         json.dump(movie_list, f)
 
-    print("Movie database saved.")
+    print(f"Movie database saved to {response}.json")
 
 main()
