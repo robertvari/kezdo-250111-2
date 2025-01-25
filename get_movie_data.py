@@ -14,10 +14,11 @@ def get_movies(page_number):
     return movies.popular(page=page_number)["results"]
 
 def print_movies(movie_list):
-    pass
+    for movie in movie_list:
+        print(movie["title"], movie["vote_average"])
 
 def save_movies(movie_list):
     pass
 
 
-main(page_number=1)
+main(page_number=100)
