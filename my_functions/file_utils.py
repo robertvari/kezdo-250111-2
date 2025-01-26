@@ -21,9 +21,13 @@ def find_files(root_folder: str, file_list: list):
         if os.path.isfile(full_path):
             # store file in file_list
             file_list.append(full_path)
+        else:  # this is a subfolder so I store it in subfolders
+            subfolders.append(full_path)
 
 
-
+    # recursive call if we found subfolders
+    for folder in subfolders:
+        find_files(folder, file_list)
 
 
 # this runs only if file_utils.py being run
@@ -31,3 +35,8 @@ if __name__ == "__main__":
     root_folder = r"C:\Work\Houdini"
     file_list = []
     find_files(root_folder, file_list)
+
+    for i in file_list:
+        print(i)
+    
+    print(f"We found {len(file_list)} files")
