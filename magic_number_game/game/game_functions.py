@@ -44,6 +44,8 @@ def game_loop():
     round_end_conditions(magic_number, player_number)
     
 def round_end_conditions(magic_number, player_number):
+    clear_screen()
+    
     if magic_number == player_number:
         print(f"You win! {magic_number} was my number")
     else:
