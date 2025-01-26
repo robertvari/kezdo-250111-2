@@ -1,6 +1,6 @@
 import os
 
-def find_files(root_folder: str, file_list: list):
+def find_files(root_folder: str, file_list: list, filter=None):
     # check if rooot_folder is a valid folder
     assert os.path.isdir(root_folder), f"{root_folder} is not a directory."
     # check if file_list is a list
@@ -27,14 +27,14 @@ def find_files(root_folder: str, file_list: list):
 
     # recursive call if we found subfolders
     for folder in subfolders:
-        find_files(folder, file_list)
+        find_files(folder, file_list, filter)
 
 
 # this runs only if file_utils.py being run
 if __name__ == "__main__":
     root_folder = r"C:\Work\Houdini"
     file_list = []
-    find_files(root_folder, file_list)
+    find_files(root_folder, file_list, filter=".jpg")
 
     for i in file_list:
         print(i)
