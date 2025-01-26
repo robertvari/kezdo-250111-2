@@ -1,5 +1,6 @@
 from my_functions import math_functions
+from my_functions import math_functions as mf
+from my_functions.math_functions import multiply_numbers
 
-print(math_functions.add_numbers(10, 5))
-print(math_functions.divide_numbers(10, 5))
-print(math_functions.multiply_numbers(10, 5))
+print(mf.multiply_numbers(10, 5))
+print(mf.add_numbers(10, 5))
