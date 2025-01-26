@@ -20,7 +20,11 @@ def find_files(root_folder: str, file_list: list, filter=None):
         # check if the full_path is a file
         if os.path.isfile(full_path):
             # store file in file_list
-            file_list.append(full_path)
+            if filter:  # check if we have filter
+                if filter in full_path:  # check if filter part of the full_path
+                    file_list.append(full_path)
+            else:
+                file_list.append(full_path)
         else:  # this is a subfolder so I store it in subfolders
             subfolders.append(full_path)
 
@@ -34,7 +38,7 @@ def find_files(root_folder: str, file_list: list, filter=None):
 if __name__ == "__main__":
     root_folder = r"C:\Work\Houdini"
     file_list = []
-    find_files(root_folder, file_list, filter=".jpg")
+    find_files(root_folder, file_list, filter=".ini")
 
     for i in file_list:
         print(i)
