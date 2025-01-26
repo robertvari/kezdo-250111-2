@@ -3,7 +3,7 @@ import os, random
 PLAYER_NAME = None
 MIN_NUMBER = 1
 MAX_NUMBER = 10
-
+CREDITS = 10
 
 def clear_screen():
     if os.name == "nt":
