@@ -1,10 +1,26 @@
 import os
 
-def find_files(root_folder, file_list):
-    assert os.path.isdir(root_folder), f"{root_folder} if not a directory."
+def find_files(root_folder: str, file_list: list):
+    # check if rooot_folder is a valid folder
+    assert os.path.isdir(root_folder), f"{root_folder} is not a directory."
+    # check if file_list is a list
+    assert isinstance(file_list, list), "file_list must be a list."
 
+    # collect content of the root_folder
+    folder_content = os.listdir(root_folder)
 
+    # create a container for subfolders
+    subfolders = []
 
+    # step through of folder_content and collect files and subfolders
+    for i in folder_content:
+        # create a valid path (absolute path) to the file/folder
+        full_path = os.path.join(root_folder, i)
+
+        # check if the full_path is a file
+        if os.path.isfile(full_path):
+            # store file in file_list
+            file_list.append(full_path)
 
 
 
