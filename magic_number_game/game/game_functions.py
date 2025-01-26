@@ -27,7 +27,7 @@ def get_player_number():
 
 def game_loop():
     max_tries = 3
-    
+
     print(f"Here is the deal {PLAYER_NAME}. You have {max_tries} tries.")
     magic_number = str( random.randint(MIN_NUMBER, MAX_NUMBER) )
     print(f"MAGIC NUMBER: {magic_number}")
@@ -55,6 +55,7 @@ def round_end_conditions(magic_number, player_number):
     
     response = input("Do you want to play again? (y/n)")
     if response == "y":
+        clear_screen()
         game_loop()
     else:
         exit_game()
@@ -62,5 +63,5 @@ def round_end_conditions(magic_number, player_number):
 
 def exit_game():
     clear_screen()
-    print("Sorry, you lost the game :(")
+    print("See you next time!")
     exit()
