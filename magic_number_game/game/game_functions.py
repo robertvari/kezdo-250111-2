@@ -29,15 +29,32 @@ def game_loop():
     max_tries = 3
     print(f"You have {max_tries} tries.")
     magic_number = str( random.randint(MIN_NUMBER, MAX_NUMBER) )
+    print(f"MAGIC NUMBER: {magic_number}")
+
     player_number = get_player_number()
 
     while player_number != magic_number:
         max_tries -=1
         if max_tries == 0:
-            exit_game()
+            round_end_conditions(magic_number, player_number)
         
         print(f"Wrong guess. You have {max_tries} tries left.")
         player_number = get_player_number()
+    
+    round_end_conditions(magic_number, player_number)
+    
+def round_end_conditions(magic_number, player_number):
+    if magic_number == player_number:
+        print(f"You win! {magic_number} was my number")
+    else:
+        print("You lost this round :(")
+    
+    response = input("Do you want to play again? (y/n)")
+    if response == "y":
+        game_loop()
+    else:
+        exit_game()
+
 
 def exit_game():
     clear_screen()
